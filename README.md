@@ -1,0 +1,2 @@
+CodedUI.jQueryExtensions
+========================
