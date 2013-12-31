@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata>
+        <id>CodedUI.jQueryExtensions</id>
+        <version>1.0.0.0</version>
+        <title>CodedUI.jQueryExtensions</title>
+        <authors>Richard Pearson</authors>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/rpearsondev/CodedUI.jQueryExtensions</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Makes using jQuery selectors from codedUI easy. Adds useful extension methods to the Browser object such as JQuerySelect and JQueryExists and JQueryWaitForExists. It will automatically load jQuery into page if not already present.</description>
+        <tags>CodedUI Coded UI jQuery Extensions</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
+            <frameworkAssembly assemblyName="Microsoft.VisualStudio.TestTools.UITesting" targetFramework=".NETFramework4.5" />
+            <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.5" />
+        </frameworkAssemblies>
+        <references>
+          <group targetFramework="net45">
+            <reference file="CodedUI.jQueryExtensions.dll" />
+          </group>
+        </references>
+    </metadata>
+    <files>
+        <file src="content\lib\net45\CodedUI.jQueryExtensions.dll" target="lib\net45\CodedUI.jQueryExtensions.dll" />
+        <file src="content\lib\net45\CodedUI.jQueryExtensions.xml" target="lib\net45\CodedUI.jQueryExtensions.xml" />
+        <file src="content\app.config.transform" target="content\app.config.transform" />
+        <file src="tools\init.ps1" target="tools\init.ps1" />
+    </files>
+</package>

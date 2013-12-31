@@ -1,0 +1,5 @@
+﻿<configuration>
+	<appSettings>
+		<add key="CodedUI.JQueryExtensions.jQuerySrc" value="//code.jquery.com/jquery-latest.min.js"/>
+	</appSettings>
+</configuration>
