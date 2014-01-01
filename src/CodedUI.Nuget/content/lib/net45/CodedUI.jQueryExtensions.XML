@@ -21,19 +21,17 @@
             </summary>
         </member>
         <member name="P:CodedUI.jQueryExtensions.JavaScript.loadjQuery">
-             <summary>
-               Looks up a localized string similar to (function loadjQuery() {
-                        window.CodedUIjQuery = window.CodedUIjQuery || {};
-                        if (typeof jQuery == &quot;function&quot;) {
-                            CodedUIjQuery.jQuery = jQuery.noConflict();
-                        } else {
-                            var head = document.getElementsByTagName(&quot;head&quot;)[0] || document.documentElement;
-                            var script = document.createElement(&quot;script&quot;);
-                            script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
-                            script.setAttribute(&quot;src&quot;, &quot;$jquerySrc$&quot;);
-            
-               [rest of string was truncated]&quot;;.
-             </summary>
+            <summary>
+              Looks up a localized string similar to (function loadjQuery() {
+                       window.CodedUI = window.CodedUI || {};
+                       CodedUI.jQueryExtensions = CodedUI.CodedUIjQuery || {};
+                       if (typeof jQuery == &quot;function&quot;) {
+                           CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
+                       } else {
+                           var head = document.getElementsByTagName(&quot;head&quot;)[0] || document.documentElement;
+                           var script = document.createElement(&quot;script&quot;);
+                           script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot; [rest of string was truncated]&quot;;.
+            </summary>
         </member>
         <member name="M:CodedUI.jQueryExtensions.JQueryExtensions.JQuerySelect``1(Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow,System.String)">
             <summary>

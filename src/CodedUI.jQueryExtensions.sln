@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUI.jQueryExtensions.Co
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUI.Nuget", "CodedUI.Nuget\CodedUI.Nuget.csproj", "{41238DBB-3FCF-48AC-964B-477C9305F1CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8158AD7-7449-4423-80FC-9FED5584E550} = {F8158AD7-7449-4423-80FC-9FED5584E550}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUI.jQueryExtensions.WebsiteHost", "CodedUI.jQueryExtensions.WebsiteHost\CodedUI.jQueryExtensions.WebsiteHost.csproj", "{2E33B2E1-0E59-454C-9BC2-FD81DF26EB6E}"
 EndProject
