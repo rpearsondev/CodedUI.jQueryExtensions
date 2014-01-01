@@ -8,7 +8,7 @@
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/rpearsondev/CodedUI.jQueryExtensions</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Makes using jQuery selectors from codedUI easy. Adds useful extension methods to the Browser object such as JQuerySelect and JQueryExists and JQueryWaitForExists. It will automatically load jQuery into page if not already present.</description>
+        <description>CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It will allows you to select and examine things in the page under test by jQuery selector.</description>
         <tags>CodedUI Coded UI jQuery Extensions</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
