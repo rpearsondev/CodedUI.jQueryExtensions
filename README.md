@@ -1,7 +1,7 @@
 CodedUI.jQueryExtensions
 ========================
 
-CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It will allow you to select things in the page under test by jQuery selector. This saves having to use the clunky ways of selecting elements that CodedUI supplies by default.
+CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It will allows you to select things in the page under test using jQuery selectors.
 
 What does it give me?
 ---------------------
@@ -30,10 +30,10 @@ CodedUI.jQueryExtensions will automatticaly include a jQuery script into the pag
 What configuration does it require?
 -----------------------------------
 
-When the CodedUI.jQueryExtensions nuget package is added to a project, a <appSetting> key will be added automatically.
+When the CodedUI.jQueryExtensions nuget package is added to a project, a <appSetting> key will be added automatically to the app.comfig.
 
 ```xml
 <add key="CodedUI.JQueryExtensions.jQuerySrc" value="//code.jquery.com/jquery-latest.min.js" />
 ```
 
-This is the URL of the jQuery that you would like CodedUI.jQueryExtensions to include if jQuery is not already included on that page. By default it uses the latest version of jQuery available from their CDN. You may wish to change this URL to a specific version. The version of jQuery is loaded from the URL will be attched to window.CodedUI.jQueryExtensions.jQuery using jQuery.noConflict().
+This is the URL of the jQuery  script that you would like CodedUI.jQueryExtensions to include if jQuery is not already included on that page. By default it uses the latest version of jQuery available from their CDN. You may wish to change this URL to a specific version. The version of jQuery that is loaded from the URL will be attached to window.CodedUI.jQueryExtensions.jQuery using jQuery.noConflict().
