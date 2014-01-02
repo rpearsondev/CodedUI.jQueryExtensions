@@ -25,7 +25,7 @@ public static bool JQueryWaitForExists(this BrowserWindow window, string selecto
 ```
 
 #Features
-CodedUI.jQueryExtensions will automaticaly include a jQuery script into the page if one does not already exist.
+CodedUI.jQueryExtensions will automatically include a jQuery script into the page if one does not already exist.
 
 What configuration does it require?
 -----------------------------------
