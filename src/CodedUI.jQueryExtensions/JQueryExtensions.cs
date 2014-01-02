@@ -41,7 +41,7 @@ namespace CodedUI.jQueryExtensions
             if (controlsBySelector.Any(x => !(x is T)))
             {
                 throw new InvalidCastException(
-                    string.Format("One or more object(s) returned jQuery selector could not be cast to {0}",
+                    string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
                         typeof (T).Name));
             }
 
