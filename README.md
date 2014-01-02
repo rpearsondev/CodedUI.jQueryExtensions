@@ -42,4 +42,4 @@ This is the URL of the jQuery script that you would like CodedUI.jQueryExtension
 Can I use it with Visual Studio 201(0|2|3) ?
 ----------------------------------------------
 
-It will only currently work on with Visual Studio 2013. This is because 2012 and 2013 ship with different versions fo the Microsoft.VisualStudio.TestTools.UITesting assembly. The current nuget package references the 2013 version. This may be rectified in the next version of the nuget to be released.
+It will only currently work on with Visual Studio 2013. This is because 2012 and 2013 ship with different versions fo the Microsoft.VisualStudio.TestTools.UITesting assembly. The current nuget package references the 2013 version. This may be rectified in the next version of the nuget package to be released.
