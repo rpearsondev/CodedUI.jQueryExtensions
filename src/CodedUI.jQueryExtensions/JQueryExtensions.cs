@@ -36,7 +36,7 @@ namespace CodedUI.jQueryExtensions
             EnsureJqueryInPage(window);
 
             var controlsBySelector =
-                (List<object>) window.ExecuteScript(string.Format("return CodedUIjQuery.jQuery('{0}')", selector));
+                (List<object>) window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector));
 
             if (controlsBySelector.Any(x => !(x is T)))
             {

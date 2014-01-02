@@ -62,16 +62,14 @@ namespace CodedUI.jQueryExtensions {
         
         /// <summary>
         ///   Looks up a localized string similar to (function loadjQuery() {
-        ///            window.CodedUIjQuery = window.CodedUIjQuery || {};
+        ///            window.CodedUI = window.CodedUI || {};
+        ///            CodedUI.jQueryExtensions = CodedUI.CodedUIjQuery || {};
         ///            if (typeof jQuery == &quot;function&quot;) {
-        ///                CodedUIjQuery.jQuery = jQuery.noConflict();
+        ///                CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
         ///            } else {
         ///                var head = document.getElementsByTagName(&quot;head&quot;)[0] || document.documentElement;
         ///                var script = document.createElement(&quot;script&quot;);
-        ///                script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
-        ///                script.setAttribute(&quot;src&quot;, &quot;$jquerySrc$&quot;);
-        ///
-        ///   [rest of string was truncated]&quot;;.
+        ///                script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string loadjQuery {
             get {

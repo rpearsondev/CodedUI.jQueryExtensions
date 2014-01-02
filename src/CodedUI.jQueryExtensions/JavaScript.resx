@@ -119,9 +119,10 @@
   </resheader>
   <data name="loadjQuery" xml:space="preserve">
     <value>(function loadjQuery() {
-            window.CodedUIjQuery = window.CodedUIjQuery || {};
+            window.CodedUI = window.CodedUI || {};
+            CodedUI.jQueryExtensions = CodedUI.CodedUIjQuery || {};
             if (typeof jQuery == "function") {
-                CodedUIjQuery.jQuery = jQuery.noConflict();
+                CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
             } else {
                 var head = document.getElementsByTagName("head")[0] || document.documentElement;
                 var script = document.createElement("script");
@@ -134,7 +135,7 @@
                     if (!done &amp;&amp; (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
                         done = true;
 
-                        CodedUIjQuery.jQuery = jQuery.noConflict();
+                        CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
 
                         script.onload = script.onreadystatechange = null;
                         if (head &amp;&amp; script.parentNode) {

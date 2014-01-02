@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPackage.bat" />
-    <None Include="CodedUI.jQueryExtensions.1.0.0.0.nupkg" />
     <None Include="CodedUI.jQueryExtensions.nuspec" />
     <None Include="content\app.config.transform" />
     <None Include="tools\init.ps1" />
