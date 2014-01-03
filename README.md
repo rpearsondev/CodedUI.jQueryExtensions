@@ -3,6 +3,8 @@ CodedUI.jQueryExtensions
 
 CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It will allows you to select things in the page under test using jQuery selectors.
 
+[CodedUI.jQueryExtensions NuGet package](https://www.nuget.org/packages/CodedUI.jQueryExtensions/)
+
 What does it give me?
 ---------------------
 
@@ -42,7 +44,7 @@ This is the URL of the jQuery script that you would like CodedUI.jQueryExtension
 Can I use it with Visual Studio 2010, 2012, 2013 ?
 ----------------------------------------------
 
-IIt will work with Visual Studio 2012 and 2013. 
+It will work with Visual Studio 2012 and 2013. 
 
 How do I use it?
 ----------------
