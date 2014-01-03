@@ -53,7 +53,7 @@ How do I use it?
 ```csharp
 public IEnumerable<HtmlControl> GetLiElements()
 {
-return Browser.JQuerySelect<HtmlControl>("#multipleElementsTest li");
+	return Browser.JQuerySelect<HtmlControl>("#multipleElementsTest li");
 }
 ```
 
