@@ -39,7 +39,27 @@ When the CodedUI.jQueryExtensions nuget package is added to a project, a <appSet
 This is the URL of the jQuery script that you would like CodedUI.jQueryExtensions to include if jQuery is not already included on that page. By default it uses the latest version of jQuery available from their CDN. You may wish to change this URL to a specific version. The version of jQuery that is loaded from the URL will be attached to window.CodedUI.jQueryExtensions.jQuery using jQuery.noConflict().
 
 
-Can I use it with Visual Studio 201(0|2|3) ?
+Can I use it with Visual Studio 2010, 2012, 2013 ?
 ----------------------------------------------
 
-It will only currently work on with Visual Studio 2013. This is because 2012 and 2013 ship with different versions fo the Microsoft.VisualStudio.TestTools.UITesting assembly. The current nuget package references the 2013 version. This may be rectified in the next version of the nuget package to be released.
+IIt will work with Visual Studio 2012 and 2013. 
+
+How do I use it?
+----------------
+
+#Selecting li's from a ul with an id
+```csharp
+public IEnumerable<HtmlControl> GetLiElements()
+{
+	return Browser.JQuerySelect<HtmlControl>("#multipleElementsTest li");
+}
+```
+
+#Waiting for an element to exist on a page
+```csharp
+public bool WaitForDivToExist()
+{
+	return Browser.JQueryWaitForExists("#divExistAfter5SecondsTest");
+}
+```
+
