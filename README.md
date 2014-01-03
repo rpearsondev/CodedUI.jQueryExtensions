@@ -47,15 +47,15 @@ IIt will work with Visual Studio 2012 and 2013.
 How do I use it?
 ----------------
 
-#Selecting li's from a ul with an id
+###Selecting li's from a ul with an id
 ```csharp
 public IEnumerable<HtmlControl> GetLiElements()
 {
-	return Browser.JQuerySelect<HtmlControl>("#multipleElementsTest li");
+return Browser.JQuerySelect<HtmlControl>("#multipleElementsTest li");
 }
 ```
 
-#Waiting for an element to exist on a page
+###Waiting for an element to exist on a page
 ```csharp
 public bool WaitForDivToExist()
 {
