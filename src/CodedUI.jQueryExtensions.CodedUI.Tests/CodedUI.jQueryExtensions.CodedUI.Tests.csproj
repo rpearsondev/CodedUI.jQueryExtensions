@@ -38,6 +38,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +48,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +57,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' Or '$(VisualStudioVersion)' == '11.0'">
@@ -64,9 +67,9 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Reference Include="CodedUI.jQueryExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CodedUI.jQueryExtensions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodedUI.jQueryExtensions.1.0.0.0\lib\net45\CodedUI.jQueryExtensions.dll</HintPath>
+      <HintPath>..\packages\CodedUI.jQueryExtensions.1.0.1.0\lib\net45\CodedUI.jQueryExtensions.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>

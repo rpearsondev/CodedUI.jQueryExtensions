@@ -30,7 +30,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
 
 
         [TestMethod]
-        public void WaitForExistsWaitsUpToTheDefaultTimeout()
+        public void WaitForExistsWithDefaultTimeout()
         {
             Assert.IsTrue(TestedPage.WaitForDivDefaultTimeout());
         }

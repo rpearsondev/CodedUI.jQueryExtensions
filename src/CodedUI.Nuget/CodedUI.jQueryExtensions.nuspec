@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
     <metadata>
         <id>CodedUI.jQueryExtensions</id>
-        <version>1.0.0.0</version>
+        <version>1.0.1.0</version>
         <title>CodedUI.jQueryExtensions</title>
         <authors>Richard Pearson</authors>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -10,21 +10,20 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It will allows you to select and examine things in the page under test by jQuery selector.</description>
         <tags>CodedUI Coded UI jQuery Extensions</tags>
+        <releaseNotes>Now references Visual Studio 2012 version of Microsoft.VisualStudio.TestTools.UITesting so that 2012 users can use it.</releaseNotes>
         <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="Microsoft.VisualStudio.TestTools.UITesting" targetFramework=".NETFramework4.5" />
-            <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.5" />
+            <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.0" />
+            <frameworkAssembly assemblyName="Microsoft.VisualStudio.TestTools.UITesting" targetFramework=".NETFramework4.0" />
+            <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.0" />
         </frameworkAssemblies>
         <references>
-          <group targetFramework="net45">
             <reference file="CodedUI.jQueryExtensions.dll" />
-          </group>
         </references>
     </metadata>
     <files>
-        <file src="content\lib\net45\CodedUI.jQueryExtensions.dll" target="lib\net45\CodedUI.jQueryExtensions.dll" />
-        <file src="content\lib\net45\CodedUI.jQueryExtensions.xml" target="lib\net45\CodedUI.jQueryExtensions.xml" />
+        <file src="content\lib\net40\CodedUI.jQueryExtensions.dll" target="lib\net40\CodedUI.jQueryExtensions.dll" />
+        <file src="content\lib\net40\CodedUI.jQueryExtensions.xml" target="lib\net40\CodedUI.jQueryExtensions.xml" />
         <file src="content\app.config.transform" target="content\app.config.transform" />
         <file src="tools\init.ps1" target="tools\init.ps1" />
     </files>

@@ -51,7 +51,7 @@
     <None Include="tools\init.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\lib\net45\" />
+    <Folder Include="content\lib\net40\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NuGet.exe" />
