@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UITesting;
 
+
 namespace CodedUI.jQueryExtensions
 {
     public static class JQueryExtensions
