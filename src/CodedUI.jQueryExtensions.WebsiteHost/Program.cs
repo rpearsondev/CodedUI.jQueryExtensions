@@ -11,7 +11,7 @@ namespace CodedUI.jQueryExtensions.WebsiteHost
 
             using (WebApp.Start<Startup>(url))
             {
-                Console.WriteLine("Running on http://localhost:8080", url);
+                Console.WriteLine("Running on http://localhost:8080");
                 Console.WriteLine("Press enter to exit");
                 Console.ReadLine();
             }
