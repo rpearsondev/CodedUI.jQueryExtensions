@@ -64,12 +64,13 @@ namespace CodedUI.jQueryExtensions {
         ///   Looks up a localized string similar to (function loadjQuery() {
         ///            window.CodedUI = window.CodedUI || {};
         ///            CodedUI.jQueryExtensions = CodedUI.CodedUIjQuery || {};
-        ///            if (typeof jQuery == &quot;function&quot;) {
-        ///                CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
+        ///            if (typeof $ == &quot;function&quot;) {
+        ///                CodedUI.jQueryExtensions.jQuery = jQuery;
         ///            } else {
         ///                var head = document.getElementsByTagName(&quot;head&quot;)[0] || document.documentElement;
         ///                var script = document.createElement(&quot;script&quot;);
-        ///                script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot; [rest of string was truncated]&quot;;.
+        ///                script.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+        ///               [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string loadjQuery {
             get {

@@ -61,6 +61,7 @@
     <EmbeddedResource Include="JavaScript.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>JavaScript.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -121,8 +121,8 @@
     <value>(function loadjQuery() {
             window.CodedUI = window.CodedUI || {};
             CodedUI.jQueryExtensions = CodedUI.CodedUIjQuery || {};
-            if (typeof jQuery == "function") {
-                CodedUI.jQueryExtensions.jQuery = jQuery.noConflict();
+            if (typeof $ == "function") {
+                CodedUI.jQueryExtensions.jQuery = jQuery;
             } else {
                 var head = document.getElementsByTagName("head")[0] || document.documentElement;
                 var script = document.createElement("script");

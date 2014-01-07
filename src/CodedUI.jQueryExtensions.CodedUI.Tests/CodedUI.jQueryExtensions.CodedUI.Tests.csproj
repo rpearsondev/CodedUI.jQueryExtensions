@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CodedUIjQuery.jQueryExtensions.CodedUI.Tests</RootNamespace>
     <AssemblyName>CodedUIjQuery.jQueryExtensions.CodedUI.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -67,10 +67,6 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Reference Include="CodedUI.jQueryExtensions, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodedUI.jQueryExtensions.1.0.2.1\lib\net40\CodedUI.jQueryExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -78,7 +74,8 @@
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Services.TestTools.UITesting.Html">
+    <Reference Include="Microsoft.Services.TestTools.UITesting.Html, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CodedUI.CodeFirst.1.0.3\lib\net40\Microsoft.Services.TestTools.UITesting.Html.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -89,6 +86,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +100,10 @@
     </Compile>
     <Compile Include="AbstractPageTest.cs" />
     <Compile Include="Pages\ExistsTestsPage.cs" />
+    <Compile Include="Pages\JQueryNotExistsPage.cs" />
+    <Compile Include="Pages\JQueryExistsPage.cs" />
+    <Compile Include="Tests\JQueryNotExistsTest.cs" />
+    <Compile Include="Tests\JQueryExistsTest.cs" />
     <Compile Include="Tests\WaitExistsTests.cs" />
     <Compile Include="Tests\ExistsTests.cs" />
     <Compile Include="Pages\WaitForTestsPage.cs" />
@@ -133,8 +135,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodedUI.jQueryExtensions.Test.Core\CodedUI.jQueryExtensions.Test.Core.csproj">
-      <Project>{42CBFF89-454C-4312-B680-8B9DE410DA59}</Project>
+      <Project>{42cbff89-454c-4312-b680-8b9de410da59}</Project>
       <Name>CodedUI.jQueryExtensions.Test.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodedUI.jQueryExtensions\CodedUI.jQueryExtensions.csproj">
+      <Project>{f8158ad7-7449-4423-80fc-9fed5584e550}</Project>
+      <Name>CodedUI.jQueryExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
