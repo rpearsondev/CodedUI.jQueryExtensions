@@ -67,7 +67,7 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        /// Waits 10 Seconds for an element to exist. If no element exists within 10 seconds it will return false.
+        /// Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
         /// </summary>
         /// <remarks>
         /// Will block until element exists or timeout reached.
@@ -81,7 +81,7 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        /// Waits N milliseconds for an element to exist. If no element exists within N milliseconds it will return false.
+        /// Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
         /// </summary>
         /// <remarks>
         /// Will block until element exists or timeout reached.
@@ -105,6 +105,48 @@ namespace CodedUI.jQueryExtensions
 
             return false;
         }
+
+
+        /// <summary>
+        /// Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
+        /// </summary>
+        /// <remarks>
+        /// Will block until element exists or timeout reached.
+        /// </remarks>
+        /// <param name="window"></param>
+        /// <param name="selector">The jQuery selector.</param>
+        /// <returns></returns>
+        public static bool JQueryWaitForNotExists(this BrowserWindow window, string selector)
+        {
+            return JQueryWaitForNotExists(window, selector, WaitForTimeout);
+        }
+
+        /// <summary>
+        /// Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return false.
+        /// </summary>
+        /// <remarks>
+        /// Will block until doesn't element exists or timeout reached.
+        /// </remarks>
+        /// <param name="window"></param>
+        /// <param name="selector">The jQuery selector.</param>
+        /// <param name="timeoutMilliSeconds">The timeout in milliseconds to wait.</param>
+        /// <returns></returns>
+        public static bool JQueryWaitForNotExists(this BrowserWindow window, string selector, int timeoutMilliSeconds)
+        {
+            DateTime startDateTime = DateTime.UtcNow;
+
+            do
+            {
+                if (!JQueryExists(window, selector))
+                {
+                    return true;
+                }
+                Thread.Sleep(WaitForIterationTimeout);
+            } while ((DateTime.UtcNow - startDateTime).TotalMilliseconds < timeoutMilliSeconds);
+
+            return false;
+        }
+
 
         private static void EnsureJqueryInPage(BrowserWindow window)
         {

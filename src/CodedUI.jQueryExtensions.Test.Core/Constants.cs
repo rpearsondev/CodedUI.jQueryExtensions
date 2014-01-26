@@ -7,6 +7,6 @@
         public const string WaitForExistsTestPath = "/WaitForExistsTests";
         public const string JQueryExistsInjectTests = "/JqueryInjectTests";
         public const string JQueryNotExistsInjectTests = "/JQueryNotExistsInjectTests";
-        
+        public const string WaitForNotExistsTests = "/WaitForNotExistsTests";
     }
 }

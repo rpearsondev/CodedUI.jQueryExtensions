@@ -68,7 +68,7 @@
         </member>
         <member name="M:CodedUI.jQueryExtensions.JQueryExtensions.JQueryWaitForExists(Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow,System.String)">
             <summary>
-            Waits 10 Seconds for an element to exist. If no element exists within 10 seconds it will return false.
+            Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
             </summary>
             <remarks>
             Will block until element exists or timeout reached.
@@ -79,10 +79,33 @@
         </member>
         <member name="M:CodedUI.jQueryExtensions.JQueryExtensions.JQueryWaitForExists(Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow,System.String,System.Int32)">
             <summary>
-            Waits N milliseconds for an element to exist. If no element exists within N milliseconds it will return false.
+            Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
             </summary>
             <remarks>
             Will block until element exists or timeout reached.
+            </remarks>
+            <param name="window"></param>
+            <param name="selector">The jQuery selector.</param>
+            <param name="timeoutMilliSeconds">The timeout in milliseconds to wait.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodedUI.jQueryExtensions.JQueryExtensions.JQueryWaitForNotExists(Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow,System.String)">
+            <summary>
+            Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
+            </summary>
+            <remarks>
+            Will block until element exists or timeout reached.
+            </remarks>
+            <param name="window"></param>
+            <param name="selector">The jQuery selector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CodedUI.jQueryExtensions.JQueryExtensions.JQueryWaitForNotExists(Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow,System.String,System.Int32)">
+            <summary>
+            Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return false.
+            </summary>
+            <remarks>
+            Will block until doesn't element exists or timeout reached.
             </remarks>
             <param name="window"></param>
             <param name="selector">The jQuery selector.</param>

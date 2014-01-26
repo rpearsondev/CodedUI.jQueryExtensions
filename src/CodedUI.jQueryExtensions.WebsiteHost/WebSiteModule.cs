@@ -18,6 +18,8 @@ namespace CodedUI.jQueryExtensions.WebSite
             Get[Constants.JQueryExistsInjectTests] = _ => { return View["viewJQueryExistsInjectTests", new { }]; };
 
             Get[Constants.JQueryNotExistsInjectTests] = _ => { return View["viewJQueryNotExistsInjectTests", new { }]; };
+
+            Get[Constants.WaitForNotExistsTests] = _ => { return View["viewWaitForNotExistsTests", new { }]; };
         }
     }
 }
