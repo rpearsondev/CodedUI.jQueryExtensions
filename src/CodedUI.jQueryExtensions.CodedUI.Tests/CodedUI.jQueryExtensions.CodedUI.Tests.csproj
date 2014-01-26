@@ -74,10 +74,6 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Reference Include="CodedUI.jQueryExtensions, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodedUI.jQueryExtensions.1.0.2.2\lib\net40\CodedUI.jQueryExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -147,6 +143,10 @@
     <ProjectReference Include="..\CodedUI.jQueryExtensions.Test.Core\CodedUI.jQueryExtensions.Test.Core.csproj">
       <Project>{42cbff89-454c-4312-b680-8b9de410da59}</Project>
       <Name>CodedUI.jQueryExtensions.Test.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodedUI.jQueryExtensions\CodedUI.jQueryExtensions.csproj">
+      <Project>{f8158ad7-7449-4423-80fc-9fed5584e550}</Project>
+      <Name>CodedUI.jQueryExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
