@@ -26,6 +26,10 @@ public static bool JQueryWaitForExists(this BrowserWindow window, string selecto
 public static bool JQueryWaitForExists(this BrowserWindow window, string selector, int timeoutMilliSeconds)
 ```
 
+```csharp
+public static bool JQueryWaitForNotExists(this BrowserWindow window, string selector, int timeoutMilliSeconds)
+```
+
 #Features
 CodedUI.jQueryExtensions will automatically include a jQuery script into the page if one does not already exist.
 
@@ -39,6 +43,8 @@ When the CodedUI.jQueryExtensions nuget package is added to a project, a <appSet
 ```
 
 This is the URL of the jQuery script that you would like CodedUI.jQueryExtensions to include if jQuery is not already included on that page. By default it uses the latest version of jQuery available from their CDN. You may wish to change this URL to a specific version. The version of jQuery that is loaded from the URL will be attached to window.CodedUI.jQueryExtensions.jQuery using jQuery.noConflict().
+
+If you already have jQuery on the page then that version will be used.
 
 
 Can I use it with Visual Studio 2010, 2012, 2013 ?
