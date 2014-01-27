@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildPackage.bat" />
+    <None Include="BuildPackage.ps1" />
     <None Include="CodedUI.jQueryExtensions.nuspec" />
     <None Include="content\app.config.transform" />
     <None Include="tools\init.ps1" />
@@ -62,9 +63,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>pushd $(ProjectDir)
-BuildPackage.bat
-popd</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
