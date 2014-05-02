@@ -47,6 +47,7 @@
   <ItemGroup>
     <None Include="BuildPackage.bat" />
     <None Include="BuildPackage.ps1" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="CodedUI.jQueryExtensions.nuspec" />
     <None Include="content\app.config.transform" />
     <None Include="tools\init.ps1" />

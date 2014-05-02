@@ -15,11 +15,13 @@ namespace CodedUI.jQueryExtensions.WebSite
 
             Get[Constants.WaitForExistsTestPath] = _ => { return View["viewWaitForExistsTests", new {}]; };
 
-            Get[Constants.JQueryExistsInjectTests] = _ => { return View["viewJQueryExistsInjectTests", new { }]; };
+            Get[Constants.ExistsInjectTests] = _ => { return View["viewJQueryExistsInjectTests", new { }]; };
 
-            Get[Constants.JQueryNotExistsInjectTests] = _ => { return View["viewJQueryNotExistsInjectTests", new { }]; };
+            Get[Constants.NotExistsInjectTests] = _ => { return View["viewJQueryNotExistsInjectTests", new { }]; };
 
             Get[Constants.WaitForNotExistsTests] = _ => { return View["viewWaitForNotExistsTests", new { }]; };
+
+            Get[Constants.MethodsPage] = _ => { return View["viewMethodsTests", new { }]; };
         }
     }
 }

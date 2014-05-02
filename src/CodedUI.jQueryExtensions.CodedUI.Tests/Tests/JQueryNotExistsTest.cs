@@ -13,7 +13,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class JQueryNotExistsTests : AbstractPageTest<JQueryNotExistsInjectPage>
+    public class JQueryNotExistsTests : AbstractPageTest<NotExistsInjectPage>
     {
       
         [TestMethod]

@@ -5,8 +5,9 @@
         public const string ExistTestPath = "/ExistsTests";
         public const string SelectorTestPath = "/SelectorTests";
         public const string WaitForExistsTestPath = "/WaitForExistsTests";
-        public const string JQueryExistsInjectTests = "/JqueryInjectTests";
-        public const string JQueryNotExistsInjectTests = "/JQueryNotExistsInjectTests";
+        public const string ExistsInjectTests = "/JqueryInjectTests";
+        public const string NotExistsInjectTests = "/JQueryNotExistsInjectTests";
+        public const string MethodsPage = "/MethodsTests";
         public const string WaitForNotExistsTests = "/WaitForNotExistsTests";
     }
 }

@@ -4,8 +4,8 @@ using Microsoft.Services.TestTools.UITesting.Html;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.JQueryNotExistsInjectTests)]
-    public class JQueryNotExistsInjectPage : Page
+    [EntryUri(Constants.ExistsInjectTests)]
+    public class ExistsInjectPage : Page
     {
         public bool DoesJqueryExist()
         {

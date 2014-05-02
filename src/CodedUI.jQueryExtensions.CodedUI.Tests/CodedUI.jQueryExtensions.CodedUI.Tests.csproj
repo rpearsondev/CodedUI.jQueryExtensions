@@ -74,10 +74,6 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Reference Include="CodedUI.jQueryExtensions, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodedUI.jQueryExtensions.1.0.3.1\lib\net40\CodedUI.jQueryExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -109,10 +105,12 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="AbstractPageTest.cs" />
+    <Compile Include="Pages\MethodTestsPage.cs" />
     <Compile Include="Pages\ExistsTestsPage.cs" />
-    <Compile Include="Pages\JQueryNotExistsPage.cs" />
-    <Compile Include="Pages\JQueryExistsPage.cs" />
+    <Compile Include="Pages\NotExistsPage.cs" />
+    <Compile Include="Pages\ExistsInjectPage.cs" />
     <Compile Include="Pages\WaitForNotExistsTestsPage.cs" />
+    <Compile Include="Tests\MethodTests.cs" />
     <Compile Include="Tests\JQueryNotExistsTest.cs" />
     <Compile Include="Tests\JQueryExistsTest.cs" />
     <Compile Include="Tests\WaitForNotExists.cs" />
@@ -149,6 +147,10 @@
     <ProjectReference Include="..\CodedUI.jQueryExtensions.Test.Core\CodedUI.jQueryExtensions.Test.Core.csproj">
       <Project>{42cbff89-454c-4312-b680-8b9de410da59}</Project>
       <Name>CodedUI.jQueryExtensions.Test.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodedUI.jQueryExtensions\CodedUI.jQueryExtensions.csproj">
+      <Project>{f8158ad7-7449-4423-80fc-9fed5584e550}</Project>
+      <Name>CodedUI.jQueryExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

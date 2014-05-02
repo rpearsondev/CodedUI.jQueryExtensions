@@ -50,6 +50,54 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
+        /// Returns the combined text contents of each element in the set of matched elements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="window"></param>
+        /// <param name="selector">The jQuery selector.</param>
+        /// <returns></returns>
+        public static string JQueryText(this BrowserWindow window, string selector)
+        {
+            EnsureJqueryInPage(window);
+
+            var res = window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').text()", selector));
+
+            return res == null ? null : res.ToString();
+        }
+
+        /// <summary>
+        /// Returns the HTML contents of the first element in the set of matched elements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="window"></param>
+        /// <param name="selector">The jQuery selector.</param>
+        /// <returns></returns>
+        public static string JQueryHtml(this BrowserWindow window, string selector)
+        {
+            EnsureJqueryInPage(window);
+
+            var res = window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').html()", selector));
+
+            return res == null ? null : res.ToString();
+        }
+
+        /// <summary>
+        /// Returns the current value of the first element in the set of matched elements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="window"></param>
+        /// <param name="selector">The jQuery selector.</param>
+        /// <returns></returns>
+        public static string JQueryVal(this BrowserWindow window, string selector)
+        {
+            EnsureJqueryInPage(window);
+
+            var res = window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').val()", selector));
+
+            return res == null ? null : res.ToString();
+        }
+
+        /// <summary>
         /// Return true if selector returns any elements
         /// </summary>
         /// <example>
