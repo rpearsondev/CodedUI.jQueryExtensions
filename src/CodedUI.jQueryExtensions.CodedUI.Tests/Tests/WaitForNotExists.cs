@@ -1,9 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using CodedUI.jQueryExtensions.CodedUI.Tests.Pages;
-using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
-using Microsoft.Services.TestTools.UITesting.Html;
+﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,8 +10,6 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     [CodedUITest]
     public class WaitForNotExistsTests : AbstractPageTest<WaitForNotExistsTestsPage>
     {
-
-
         [TestMethod]
         public void WaitForNotExistsWithDefaultTimeout()
         {
@@ -28,6 +21,5 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
         {
             Assert.IsFalse(TestedPage.WaitForDivOverloadedTimeout());
         }
-
     }
 }

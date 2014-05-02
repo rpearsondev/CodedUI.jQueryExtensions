@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using CodedUI.jQueryExtensions.CodedUI.Tests.Pages;
-using Microsoft.Services.TestTools.UITesting.Html;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -24,10 +24,10 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidCastException))]
+        [ExpectedException(typeof (InvalidCastException))]
         public void SelectMultipleElementsAsWrongType()
         {
-            var res = TestedPage.DoInvalidCastGetLiElements();
+            IEnumerable<HtmlButton> res = TestedPage.DoInvalidCastGetLiElements();
         }
     }
 }
