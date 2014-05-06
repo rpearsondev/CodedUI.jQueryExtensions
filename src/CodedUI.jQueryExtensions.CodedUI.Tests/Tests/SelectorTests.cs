@@ -12,12 +12,33 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class SelectorTests : AbstractPageTest<SelectorTestsPage>
+    public class SelectorTests : AbstractPageTest
     {
+        SelectorTestsPage _testedPage;
+
+        [ClassInitialize]
+        public static void AssemblyInitialize(TestContext context)
+        {
+            StartWebserver(context);
+        }
+
+        [ClassCleanup]
+        public static void AssemblyCleanup()
+        {
+            StopWebserver();
+        }
+
+        [TestInitialize]
+        public void TestInitialise()
+        {
+            BrowserWindow.CurrentBrowser = "Firefox";
+            _testedPage = Page.Launch<SelectorTestsPage>();
+        }
+
         [TestMethod]
         public void SelectsMultipleElements()
         {
-            HtmlControl[] liElements = TestedPage.GetLiElements().ToArray();
+            HtmlControl[] liElements = _testedPage.GetLiElements().ToArray();
             Assert.AreEqual(liElements[0].InnerText, "1");
             Assert.AreEqual(liElements[1].InnerText, "2");
             Assert.AreEqual(liElements[2].InnerText, "3");
@@ -27,7 +48,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
         [ExpectedException(typeof(InvalidCastException))]
         public void SelectMultipleElementsAsWrongType()
         {
-            var res = TestedPage.DoInvalidCastGetLiElements();
+            var res = _testedPage.DoInvalidCastGetLiElements();
         }
     }
 }

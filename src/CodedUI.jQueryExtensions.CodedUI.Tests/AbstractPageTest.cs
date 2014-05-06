@@ -1,15 +1,16 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
 {
-    public abstract class AbstractPageTest<T> : PageTest<T> where T : Page, new()
+    public abstract class AbstractPageTest
     {
         private static Process _hostedWebsite;
-        
+
         public static void StartWebserver(TestContext context)
         {
             string filePath = Path.GetFullPath(
