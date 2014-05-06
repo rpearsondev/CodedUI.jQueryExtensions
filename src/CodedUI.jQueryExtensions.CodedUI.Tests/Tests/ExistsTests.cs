@@ -9,18 +9,40 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class ExistsTests : AbstractPageTest<ExistsTestsPage>
+    public class ExistsTests : AbstractPageTest
     {
+        ExistsTestsPage _testedPage;
+
+        [ClassInitialize]
+        public static void AssemblyInitialize(TestContext context)
+        {
+            StartWebserver(context);
+        }
+
+        [ClassCleanup]
+        public static void AssemblyCleanup()
+        {
+            StopWebserver();
+        }
+
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            BrowserWindow.CurrentBrowser = "Firefox";
+            _testedPage = Page.Launch<ExistsTestsPage>();
+        }
+
         [TestMethod]
         public void PresentDivExists()
         {
-            Assert.IsTrue(TestedPage.DivExists());
+            Assert.IsTrue(_testedPage.DivExists());
         }
 
         [TestMethod]
         public void NonPresentDivDoesNotExists()
         {
-            Assert.IsFalse(TestedPage.NonExistentDivExists());
+            Assert.IsFalse(_testedPage.NonExistentDivExists());
         }
     }
 }

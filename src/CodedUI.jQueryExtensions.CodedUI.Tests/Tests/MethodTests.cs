@@ -9,24 +9,46 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class MethodTests : AbstractPageTest<MethodTestsPage>
+    public class MethodTests : AbstractPageTest
     {
+        MethodTestsPage _testedPage;
+
+        [ClassInitialize]
+        public static void AssemblyInitialize(TestContext context)
+        {
+            StartWebserver(context);
+        }
+
+        [ClassCleanup]
+        public static void AssemblyCleanup()
+        {
+            StopWebserver();
+        }
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            BrowserWindow.CurrentBrowser = "Firefox";
+            _testedPage = Page.Launch<MethodTestsPage>();
+        }
+
         [TestMethod]
         public void GetsHtmlFromDiv()
         {
-            Assert.IsTrue(TestedPage.GetHtmlFromDiv() == "<a></a>");
+            
+            Assert.IsTrue(_testedPage.GetHtmlFromDiv() == "<a></a>");
         }
 
         [TestMethod]
         public void GetsTextFromAnchor()
         {
-            Assert.IsTrue(TestedPage.GetTextFromAnchor() == "text in anchor");
+            Assert.IsTrue(_testedPage.GetTextFromAnchor() == "text in anchor");
         }
 
         [TestMethod]
         public void GetsValueFromInput()
         {
-            Assert.IsTrue(TestedPage.GetValueFromInput() == "value in input");
+            Assert.IsTrue(_testedPage.GetValueFromInput() == "value in input");
         }
     }
 }
