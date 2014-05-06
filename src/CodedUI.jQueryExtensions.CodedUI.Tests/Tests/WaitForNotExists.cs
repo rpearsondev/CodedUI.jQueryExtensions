@@ -1,4 +1,5 @@
-﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+﻿using CodedUI.jQueryExtensions.Test.Core;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -25,22 +26,60 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             StopWebserver();
         }
 
-        [TestInitialize]
-        public void TestInitialize()
+        [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
+        public void WaitForNotExistsWithDefaultTimeoutIE()
         {
-            BrowserWindow.CurrentBrowser = "Chrome";
-            _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.IE);
         }
 
         [TestMethod]
-        public void WaitForNotExistsWithDefaultTimeout()
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForNotExistsWithDefaultTimeoutChrome()
         {
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.Chrome);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void WaitForNotExistsWithDefaultTimeoutFireFox()
+        {
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
+        }
+
+        private void WaitForNotExistsWithDefaultTimeout(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
             Assert.IsTrue(_testedPage.WaitForDivDefaultTimeout());
         }
 
         [TestMethod]
-        public void WaitForExistsOnlyWaitsForSpecifiedTimeout()
+        [TestCategory(Constants.Browsers.IE)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutIE()
         {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.IE);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
+        }
+
+        [TestMethod]
+        private void WaitForExistsOnlyWaitsForSpecifiedTimeout(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
             Assert.IsFalse(_testedPage.WaitForDivOverloadedTimeout());
         }
 

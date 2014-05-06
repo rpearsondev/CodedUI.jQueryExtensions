@@ -4,7 +4,7 @@ using Microsoft.Services.TestTools.UITesting.Html;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.WaitForExistsTestPath)]
+    [EntryUri(Constants.Pages.WaitForExistsTestPath)]
     public class WaitForExistsTestsPage : Page
     {
         public bool WaitForDivDefaultTimeout()

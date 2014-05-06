@@ -1,4 +1,5 @@
-﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+﻿using CodedUI.jQueryExtensions.Test.Core;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -24,9 +25,29 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
         }
 
         [TestMethod]
-        public void DoesNotRemoveJquery()
+        [TestCategory(Constants.Browsers.IE)]
+        public void DoesNotRemoveJqueryIE()
         {
-            BrowserWindow.CurrentBrowser = "Firefox";
+            DoesNotRemoveJquery(Constants.Browsers.IE);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void DoesNotRemoveJqueryChrome()
+        {
+            DoesNotRemoveJquery(Constants.Browsers.Chrome);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void DoesNotRemoveJqueryFireFox()
+        {
+            DoesNotRemoveJquery(Constants.Browsers.FireFox);
+        }
+
+        private void DoesNotRemoveJquery(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
             var testedPage = Page.Launch<ExistsInjectPage>();
             Assert.IsTrue(testedPage.DoesJqueryExist());
             Assert.IsTrue(testedPage.WaitForBody());

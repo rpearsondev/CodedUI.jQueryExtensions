@@ -3,7 +3,7 @@ using Microsoft.Services.TestTools.UITesting.Html;
 
 namespace CodedUI.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.MethodsPage)]
+    [EntryUri(Constants.Pages.MethodsPage)]
     public class MethodTestsPage: Page
     {
         public string GetTextFromAnchor()
