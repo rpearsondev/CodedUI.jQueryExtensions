@@ -31,19 +31,19 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             DoesNotRemoveJquery(Constants.Browsers.IE);
         }
 
-        [TestMethod]
-        [TestCategory(Constants.Browsers.Chrome)]
-        public void DoesNotRemoveJqueryChrome()
-        {
-            DoesNotRemoveJquery(Constants.Browsers.Chrome);
-        }
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.Chrome)]
+        //public void DoesNotRemoveJqueryChrome()
+        //{
+        //    DoesNotRemoveJquery(Constants.Browsers.Chrome);
+        //}
 
-        [TestMethod]
-        [TestCategory(Constants.Browsers.FireFox)]
-        public void DoesNotRemoveJqueryFireFox()
-        {
-            DoesNotRemoveJquery(Constants.Browsers.FireFox);
-        }
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.FireFox)]
+        //public void DoesNotRemoveJqueryFireFox()
+        //{
+        //    DoesNotRemoveJquery(Constants.Browsers.FireFox);
+        //}
 
         private void DoesNotRemoveJquery(string browser)
         {

@@ -37,19 +37,19 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             SelectsMultipleElements(Constants.Browsers.IE);
         }
 
-        [TestMethod]
-        [TestCategory(Constants.Browsers.Chrome)]
-        public void SelectsMultipleElementsChrome()
-        {
-            SelectsMultipleElements(Constants.Browsers.Chrome);
-        }
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.Chrome)]
+        //public void SelectsMultipleElementsChrome()
+        //{
+        //    SelectsMultipleElements(Constants.Browsers.Chrome);
+        //}
 
-        [TestMethod]
-        [TestCategory(Constants.Browsers.FireFox)]
-        public void SelectsMultipleElementsFireFox()
-        {
-            SelectsMultipleElements(Constants.Browsers.FireFox);
-        }
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.FireFox)]
+        //public void SelectsMultipleElementsFireFox()
+        //{
+        //    SelectsMultipleElements(Constants.Browsers.FireFox);
+        //}
 
         private void SelectsMultipleElements(string browser)
         {
@@ -71,21 +71,21 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             SelectMultipleElementsAsWrongType(Constants.Browsers.IE);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidCastException))]
-        [TestCategory(Constants.Browsers.Chrome)]
-        public void SelectMultipleElementsAsWrongTypeChrome()
-        {
-            SelectMultipleElementsAsWrongType(Constants.Browsers.Chrome);
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(InvalidCastException))]
+        //[TestCategory(Constants.Browsers.Chrome)]
+        //public void SelectMultipleElementsAsWrongTypeChrome()
+        //{
+        //    SelectMultipleElementsAsWrongType(Constants.Browsers.Chrome);
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidCastException))]
-        [TestCategory(Constants.Browsers.FireFox)]
-        public void SelectMultipleElementsAsWrongTypeFireFox()
-        {
-            SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(InvalidCastException))]
+        //[TestCategory(Constants.Browsers.FireFox)]
+        //public void SelectMultipleElementsAsWrongTypeFireFox()
+        //{
+        //    SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
+        //}
 
         private void SelectMultipleElementsAsWrongType(string browser)
         {

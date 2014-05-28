@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="CodedUI.JQueryExtensions" id="bb8de1e2-afeb-44c7-8c2b-28a37f6eb615" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>These are default test settings for a local test run.</Description>
+  <Deployment enabled="false">
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewWebsiteRoot.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewWaitForNotExistsTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewMethodsTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewJQueryExistsInjectTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewExistsTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewWaitForExistsTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewSelectorTests.html" />
+    <DeploymentItem filename="CodedUI.jQueryExtensions.CodedUI.Tests\Views\viewJQueryNotExistsInjectTests.html" />
+  </Deployment>
+  <Execution>
+    <TestTypeSpecific>
+      <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+        <AssemblyResolution>
+          <TestDirectory useLoadContext="true" />
+        </AssemblyResolution>
+      </UnitTestRunConfig>
+    </TestTypeSpecific>
+    <AgentRule name="LocalMachineDefaultRole">
+    </AgentRule>
+  </Execution>
+  <Properties />
+</TestSettings>
