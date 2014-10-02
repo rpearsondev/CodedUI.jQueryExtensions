@@ -33,12 +33,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForExistsWithDefaultTimeout(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void WaitForExistsWithDefaultTimeoutChrome()
-        //{
-        //    WaitForExistsWithDefaultTimeout(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForExistsWithDefaultTimeoutChrome()
+        {
+            WaitForExistsWithDefaultTimeout(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]
@@ -61,12 +62,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
-        //{
-        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]

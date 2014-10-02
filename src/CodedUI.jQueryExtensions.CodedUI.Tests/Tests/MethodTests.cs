@@ -33,12 +33,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             GetsHtmlFromDiv(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void GetsHtmlFromDivChrome()
-        //{
-        //    GetsHtmlFromDiv(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void GetsHtmlFromDivChrome()
+        {
+            GetsHtmlFromDiv(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]
@@ -61,12 +62,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             GetsTextFromAnchor(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void GetsTextFromAnchorChrome()
-        //{
-        //    GetsTextFromAnchor(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void GetsTextFromAnchorChrome()
+        {
+            GetsTextFromAnchor(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]
@@ -89,12 +91,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             GetsTextFromAnchor(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void GetsValueFromInputChrome()
-        //{
-        //    GetsTextFromAnchor(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void GetsValueFromInputChrome()
+        {
+            GetsTextFromAnchor(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]

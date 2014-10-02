@@ -1,4 +1,6 @@
-﻿using CodedUI.jQueryExtensions.Test.Core;
+﻿using System.Diagnostics;
+using System.Linq;
+using CodedUI.jQueryExtensions.Test.Core;
 using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
@@ -33,12 +35,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForNotExistsWithDefaultTimeout(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void WaitForNotExistsWithDefaultTimeoutChrome()
-        //{
-        //    WaitForNotExistsWithDefaultTimeout(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForNotExistsWithDefaultTimeoutChrome()
+        {
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]
@@ -61,19 +64,19 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.IE);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.Chrome)]
-        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
-        //{
-        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
+        }
 
         //[TestMethod]
         //[TestCategory(Constants.Browsers.FireFox)]
-        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
-        //{
-        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
-        //}
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
+        }
 
         private void WaitForExistsOnlyWaitsForSpecifiedTimeout(string browser)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nancy.Hosting.Self;
@@ -25,6 +26,15 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
                 _server.Start();
             }
             BrowserWindow.CurrentBrowser = "Chrome";
+        }
+
+        protected static void KillChromeDriver()
+        {
+             var procs = Process.GetProcesses().Where(p => p.ProcessName.ToLower().Contains("chromedriver"));
+            foreach (var p in procs)
+            {
+                p.Kill();
+            }
         }
 
         public static void StopWebserver()

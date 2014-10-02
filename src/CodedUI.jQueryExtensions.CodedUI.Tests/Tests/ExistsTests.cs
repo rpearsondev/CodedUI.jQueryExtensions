@@ -27,20 +27,49 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
         }
 
         [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
         public void PresentDivExistsIE()
         {
-            BrowserWindow.CurrentBrowser = Constants.Browsers.IE;
-            _testedPage = Page.Launch<ExistsTestsPage>();
-            Assert.IsTrue(_testedPage.DivExists());
-
+            PresentDivExists(Constants.Browsers.IE);
         }
 
         [TestMethod]
-        public void NonPresentDivDoesNotExists()
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void PresentDivExistsChrome()
         {
-            BrowserWindow.CurrentBrowser = Constants.Browsers.IE;
+            PresentDivExists(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
+        public void NotPresentDivNotExistsIE()
+        {
+            NonPresentDivDoesNotExists(Constants.Browsers.IE);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void NotPresentDivNotExistsChrome()
+        {
+            NonPresentDivDoesNotExists(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
+
+        public void NonPresentDivDoesNotExists(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
             _testedPage = Page.Launch<ExistsTestsPage>();
             Assert.IsFalse(_testedPage.NonExistentDivExists());
+        }
+
+
+        private void PresentDivExists(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<ExistsTestsPage>();
+            Assert.IsTrue(_testedPage.DivExists());
+
         }
     }
 }
