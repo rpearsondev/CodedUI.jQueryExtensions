@@ -12,7 +12,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
         private static Process _hostedWebsite;
         private static NancyHost _server = null;
         private static Object _LockingObject = new Object();
-
+        
         public static void StartWebserver(TestContext context)
         {
             lock (_LockingObject)

@@ -1,5 +1,5 @@
-﻿using CodedUI.jQueryExtensions.CodedUI.Tests.Pages;
-using CodedUI.jQueryExtensions.Test.Core;
+﻿using CodedUI.jQueryExtensions.Test.Core;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
