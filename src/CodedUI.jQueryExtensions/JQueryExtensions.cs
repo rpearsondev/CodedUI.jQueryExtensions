@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -35,22 +36,26 @@ namespace CodedUI.jQueryExtensions
         {
             EnsureJqueryInPage(window);
 
-            var controlsBySelector =
-                (List<object>)
-                    window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector));
+            var result = window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector));
 
-            if (controlsBySelector.Any(x => !(x is T)))
+            if (result is IList)
             {
-                throw new InvalidCastException(
-                    string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
-                        typeof (T).Name));
-            }
+                var controlsBySelector = (List<object>) result;
 
-            return controlsBySelector.Select(x => (T) x);
+                if (controlsBySelector.Any(x => !(x is T)))
+                {
+                    throw new InvalidCastException(
+                        string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
+                            typeof (T).Name));
+                }
+
+                return controlsBySelector.Select(x => (T) x);
+            }
+            return Enumerable.Empty<T>();
         }
 
         /// <summary>
-        ///     Returns the combined text contents of each element in the set of matched elements
+        ///     Returns the combined text contents of each element in the set of matched elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="window"></param>
@@ -67,7 +72,7 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Returns the HTML contents of the first element in the set of matched elements
+        ///     Returns the HTML contents of the first element in the set of matched elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="window"></param>
@@ -84,7 +89,7 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Returns the current value of the first element in the set of matched elements
+        ///     Returns the current value of the first element in the set of matched elements.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="window"></param>
@@ -101,10 +106,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Return true if selector returns any elements
+        ///     Return true if selector returns any elements.
         /// </summary>
         /// <example>
-        ///     Returns true if there is an element on the page that has the id of 'divExistTrueTest'
+        ///     Returns true if there is an element on the page that has the id of 'divExistTrueTest'.
         ///     <code>
         /// Browser.JQueryExists("#divExistTrueTest");
         /// </code>

@@ -14,7 +14,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
         {
             string filePath = Path.GetFullPath(
                 Path.Combine(
-                    // ReSharper disable once AssignNullToNotNullAttribute
+                // ReSharper disable once AssignNullToNotNullAttribute
                     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                     "../../../CodedUI.jQueryExtensions.WebsiteHost/bin/Debug/CodedUI.jQueryExtensions.WebsiteHost.exe"));
 

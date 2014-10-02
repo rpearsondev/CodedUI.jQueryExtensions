@@ -22,7 +22,6 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             StopWebserver();
         }
 
-
         [TestMethod]
         public void WaitForExistsWithDefaultTimeout()
         {

@@ -1,4 +1,5 @@
-﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+﻿using System.Runtime.InteropServices;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,6 +11,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     [CodedUITest]
     public class MethodTests : AbstractPageTest<MethodTestsPage>
     {
+
         [TestMethod]
         public void GetsHtmlFromDiv()
         {
