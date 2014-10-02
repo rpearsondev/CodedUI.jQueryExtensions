@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.SelectorTestPath)]
+    [EntryUri(Constants.Pages.SelectorTestPath)]
     public class SelectorTestsPage : Page
     {
         public IEnumerable<HtmlControl> GetLiElements()

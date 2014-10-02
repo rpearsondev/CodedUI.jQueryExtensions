@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using Microsoft.Services.TestTools.UITesting.Html;
 
-namespace CodedUI.jQueryExtensions.CodedUI.Tests
+namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
 {
     [Export(typeof (IWebUITestConfiguration))]
     public class TestConfiguration : IWebUITestConfiguration

@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UITesting;
+
 
 namespace CodedUI.jQueryExtensions
 {
@@ -17,100 +18,111 @@ namespace CodedUI.jQueryExtensions
         public const string DefaultJquerySrc = "//code.jquery.com/jquery-latest.min.js";
 
         /// <summary>
-        ///     Runs a jQuery selector and returns the result
+        /// Runs a jQuery selector and returns the result
         /// </summary>
-        /// <example>
-        ///     Returning a list of HtmlControls using the <see cref="JQuerySelect" /> method.
-        ///     <code> 
+        /// <example>  
+        /// Returning a list of HtmlControls using the <see cref="JQuerySelect"/> method.
+        /// <code> 
         /// public IEnumerable&lt;HtmlControl&gt; GetLiElements()
         /// {
         ///     return Browser.JQuerySelect&lt;HtmlControl&gt;("#multipleElementsTest li");
         /// }
-        /// </code>
+        /// </code> 
         /// </example>
         /// <typeparam name="T">The type of object the result should be cast to.</typeparam>
-        /// <param name="window"></param>
+        /// <param name="browserWindow"></param>
         /// <param name="selector">The jQuery selector.</param>
         /// <returns>An enumerable of the specified type.</returns>
-        public static IEnumerable<T> JQuerySelect<T>(this BrowserWindow window, string selector)
+        public static IEnumerable<T> JQuerySelect<T>(this BrowserWindow browserWindow, string selector)
         {
-            EnsureJqueryInPage(window);
-
-            var result = window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector));
-
-            if (result is IList)
+            if (string.IsNullOrWhiteSpace(selector))
             {
-                var controlsBySelector = (List<object>) result;
-
-                if (controlsBySelector.Any(x => !(x is T)))
-                {
-                    throw new InvalidCastException(
-                        string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
-                            typeof (T).Name));
-                }
-
-                return controlsBySelector.Select(x => (T) x);
+                throw new ArgumentException("selector");
             }
-            return Enumerable.Empty<T>();
-        }
 
+            EnsureJqueryInPage(browserWindow);
+            
+            var controlsBySelector = (List<object>)browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser ,selector));
+
+            if (controlsBySelector.Any(x => !(x is T)))
+            {
+                throw new InvalidCastException(
+                    string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
+                        typeof (T).Name));
+            }
+
+            return controlsBySelector.Select(x => (T) x);
+        }
+        
         /// <summary>
-        ///     Returns the combined text contents of each element in the set of matched elements.
+        /// Returns the combined text contents of each element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="window"></param>
+        /// <param name="browserWindow"></param>
         /// <param name="selector">The jQuery selector.</param>
         /// <returns></returns>
-        public static string JQueryText(this BrowserWindow window, string selector)
+        public static string JQueryText(this BrowserWindow browserWindow, string selector)
         {
-            EnsureJqueryInPage(window);
+            if (string.IsNullOrWhiteSpace(selector))
+            {
+                throw new ArgumentException("selector");
+            }
 
-            object res =
-                window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').text()", selector));
+            EnsureJqueryInPage(browserWindow);
+
+            var res = browserWindow.ExecuteScript(string.Format("{0}.text()", GetSelector(BrowserWindow.CurrentBrowser ,selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        ///     Returns the HTML contents of the first element in the set of matched elements.
+        /// Returns the HTML contents of the first element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="window"></param>
+        /// <param name="browserWindow"></param>
         /// <param name="selector">The jQuery selector.</param>
         /// <returns></returns>
-        public static string JQueryHtml(this BrowserWindow window, string selector)
+        public static string JQueryHtml(this BrowserWindow browserWindow, string selector)
         {
-            EnsureJqueryInPage(window);
+            if (string.IsNullOrWhiteSpace(selector))
+            {
+                throw new ArgumentException("selector");
+            }
 
-            object res =
-                window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').html()", selector));
+            EnsureJqueryInPage(browserWindow);
+
+            var res = browserWindow.ExecuteScript(string.Format("{0}.html()", GetSelector(BrowserWindow.CurrentBrowser, selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        ///     Returns the current value of the first element in the set of matched elements.
+        /// Returns the current value of the first element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="window"></param>
+        /// <param name="browserWindow"></param>
         /// <param name="selector">The jQuery selector.</param>
         /// <returns></returns>
-        public static string JQueryVal(this BrowserWindow window, string selector)
+        public static string JQueryVal(this BrowserWindow browserWindow, string selector)
         {
-            EnsureJqueryInPage(window);
+            if (string.IsNullOrWhiteSpace(selector))
+            {
+                throw new ArgumentException("selector");
+            }
 
-            object res =
-                window.ExecuteScript(string.Format("return CodedUI.jQueryExtensions.jQuery('{0}').val()", selector));
+            EnsureJqueryInPage(browserWindow);
+
+            var res = browserWindow.ExecuteScript(string.Format("{0}.val()", GetSelector(BrowserWindow.CurrentBrowser, selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        ///     Return true if selector returns any elements.
+        /// Return true if selector returns any elements
         /// </summary>
         /// <example>
-        ///     Returns true if there is an element on the page that has the id of 'divExistTrueTest'.
-        ///     <code>
+        /// Returns true if there is an element on the page that has the id of 'divExistTrueTest'
+        /// <code>
         /// Browser.JQueryExists("#divExistTrueTest");
         /// </code>
         /// </example>
@@ -123,10 +135,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
+        /// Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
         /// </summary>
         /// <remarks>
-        ///     Will block until element exists or timeout reached.
+        /// Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -137,10 +149,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
+        /// Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
         /// </summary>
         /// <remarks>
-        ///     Will block until element exists or timeout reached.
+        /// Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -164,10 +176,10 @@ namespace CodedUI.jQueryExtensions
 
 
         /// <summary>
-        ///     Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
+        /// Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
         /// </summary>
         /// <remarks>
-        ///     Will block until element exists or timeout reached.
+        /// Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -178,11 +190,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        ///     Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return
-        ///     false.
+        /// Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return false.
         /// </summary>
         /// <remarks>
-        ///     Will block until doesn't element exists or timeout reached.
+        /// Will block until doesn't element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -204,9 +215,25 @@ namespace CodedUI.jQueryExtensions
             return false;
         }
 
-
-        private static void EnsureJqueryInPage(BrowserWindow window)
+        private static string GetSelector(string browser, string selector)
         {
+            switch (browser)
+            {
+                case "FireFox":
+                    return string.Format("CodedUI.jQueryExtensions.jQuery('{0}')", selector);
+                default:
+                    return string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector);
+
+            }
+        }
+
+        private static void EnsureJqueryInPage(BrowserWindow browserWindow)
+        {
+            if (browserWindow == null)
+            {
+                throw new ArgumentNullException("browserWindow");
+            }
+
             string loadJqueryJs = JavaScript.loadjQuery;
             string jquerySrc = DefaultJquerySrc;
 
@@ -218,7 +245,7 @@ namespace CodedUI.jQueryExtensions
             var stringBuilder = new StringBuilder(loadJqueryJs);
             stringBuilder.Replace("$jquerySrc$", jquerySrc);
 
-            window.ExecuteScript(stringBuilder.ToString());
+            browserWindow.ExecuteScript(stringBuilder.ToString());
         }
     }
 }

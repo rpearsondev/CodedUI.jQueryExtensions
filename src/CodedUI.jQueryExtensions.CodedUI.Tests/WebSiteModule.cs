@@ -1,7 +1,7 @@
 ﻿using CodedUI.jQueryExtensions.Test.Core;
 using Nancy;
 
-namespace CodedUI.jQueryExtensions.WebSite
+namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
 {
     public class WebsiteModule : NancyModule
     {

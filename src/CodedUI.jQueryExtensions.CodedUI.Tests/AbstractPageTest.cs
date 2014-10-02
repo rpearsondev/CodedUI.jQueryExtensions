@@ -1,35 +1,35 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using Microsoft.Services.TestTools.UITesting.Html;
+﻿using System;
+using System.Diagnostics;
+using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nancy.Hosting.Self;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
 {
-    public abstract class AbstractPageTest<T> : PageTest<T> where T : Page, new()
+    [DeploymentItem(@"../views")]
+    public abstract class AbstractPageTest
     {
         private static Process _hostedWebsite;
+        private static NancyHost _server = null;
+        private static Object _LockingObject = new Object();
 
         public static void StartWebserver(TestContext context)
         {
-            string filePath = Path.GetFullPath(
-                Path.Combine(
-                // ReSharper disable once AssignNullToNotNullAttribute
-                    Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-                    "../../../CodedUI.jQueryExtensions.WebsiteHost/bin/Debug/CodedUI.jQueryExtensions.WebsiteHost.exe"));
-
-            var processStartInfo = new ProcessStartInfo(filePath);
-            processStartInfo.UseShellExecute = false;
-            processStartInfo.RedirectStandardInput = true;
-            _hostedWebsite = Process.Start(processStartInfo);
+            lock (_LockingObject)
+            {
+                if (_server != null)
+                {
+                    return;
+                }
+                _server = new NancyHost(new Uri("http://localhost:8080"));
+                _server.Start();
+            }
+            BrowserWindow.CurrentBrowser = "Chrome";
         }
 
         public static void StopWebserver()
         {
-            using (StreamWriter writer = _hostedWebsite.StandardInput)
-            {
-                writer.WriteLine("Finish");
-            }
+            _server.Stop();
         }
     }
 }

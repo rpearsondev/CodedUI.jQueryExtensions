@@ -4,7 +4,7 @@ using Microsoft.Services.TestTools.UITesting.Html;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.ExistTestPath)]
+    [EntryUri(Constants.Pages.ExistTestPath)]
     public class ExistsTestsPage : Page
     {
         public bool DivExists()

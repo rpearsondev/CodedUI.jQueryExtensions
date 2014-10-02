@@ -1,4 +1,6 @@
-﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+﻿using CodedUI.jQueryExtensions.CodedUI.Tests.Pages;
+using CodedUI.jQueryExtensions.Test.Core;
+using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,18 +10,37 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class ExistsTests : AbstractPageTest<ExistsTestsPage>
+    public class ExistsTests : AbstractPageTest
     {
-        [TestMethod]
-        public void PresentDivExists()
+        ExistsTestsPage _testedPage;
+
+        [ClassInitialize]
+        public static void AssemblyInitialize(TestContext context)
         {
-            Assert.IsTrue(TestedPage.DivExists());
+            StartWebserver(context);
+        }
+
+        [ClassCleanup]
+        public static void AssemblyCleanup()
+        {
+            StopWebserver();
+        }
+
+        [TestMethod]
+        public void PresentDivExistsIE()
+        {
+            BrowserWindow.CurrentBrowser = Constants.Browsers.IE;
+            _testedPage = Page.Launch<ExistsTestsPage>();
+            Assert.IsTrue(_testedPage.DivExists());
+
         }
 
         [TestMethod]
         public void NonPresentDivDoesNotExists()
         {
-            Assert.IsFalse(TestedPage.NonExistentDivExists());
+            BrowserWindow.CurrentBrowser = Constants.Browsers.IE;
+            _testedPage = Page.Launch<ExistsTestsPage>();
+            Assert.IsFalse(_testedPage.NonExistentDivExists());
         }
     }
 }

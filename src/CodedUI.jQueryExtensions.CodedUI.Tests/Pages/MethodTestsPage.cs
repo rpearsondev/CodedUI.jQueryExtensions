@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UITesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
-    [EntryUri(Constants.MethodsPage)]
+    [EntryUri(Constants.Pages.MethodsPage)]
     public class MethodTestsPage: Page
     {
         public string GetTextFromAnchor()

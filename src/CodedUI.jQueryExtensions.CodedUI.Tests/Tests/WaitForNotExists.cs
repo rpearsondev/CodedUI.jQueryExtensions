@@ -1,4 +1,6 @@
-﻿using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+﻿using CodedUI.jQueryExtensions.Test.Core;
+using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
+using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,18 +10,77 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
     ///     Summary description for CodedUITest1
     /// </summary>
     [CodedUITest]
-    public class WaitForNotExistsTests : AbstractPageTest<WaitForNotExistsTestsPage>
+    public class WaitForNotExistsTests : AbstractPageTest
     {
-        [TestMethod]
-        public void WaitForNotExistsWithDefaultTimeout()
+        private WaitForNotExistsTestsPage _testedPage;
+
+        [ClassInitialize]
+        public static void AssemblyInitialize(TestContext context)
         {
-            Assert.IsTrue(TestedPage.WaitForDivDefaultTimeout());
+            StartWebserver(context);
+        }
+
+        [ClassCleanup]
+        public static void AssemblyCleanup()
+        {
+            StopWebserver();
         }
 
         [TestMethod]
-        public void WaitForExistsOnlyWaitsForSpecifiedTimeout()
+        [TestCategory(Constants.Browsers.IE)]
+        public void WaitForNotExistsWithDefaultTimeoutIE()
         {
-            Assert.IsFalse(TestedPage.WaitForDivOverloadedTimeout());
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.IE);
         }
+
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.Chrome)]
+        //public void WaitForNotExistsWithDefaultTimeoutChrome()
+        //{
+        //    WaitForNotExistsWithDefaultTimeout(Constants.Browsers.Chrome);
+        //}
+
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.FireFox)]
+        //public void WaitForNotExistsWithDefaultTimeoutFireFox()
+        //{
+        //    WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
+        //}
+
+        private void WaitForNotExistsWithDefaultTimeout(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
+            Assert.IsTrue(_testedPage.WaitForDivDefaultTimeout());
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutIE()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.IE);
+        }
+
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.Chrome)]
+        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutChrome()
+        //{
+        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
+        //}
+
+        //[TestMethod]
+        //[TestCategory(Constants.Browsers.FireFox)]
+        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
+        //{
+        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
+        //}
+
+        private void WaitForExistsOnlyWaitsForSpecifiedTimeout(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
+            Assert.IsFalse(_testedPage.WaitForDivOverloadedTimeout());
+        }
+
     }
 }
