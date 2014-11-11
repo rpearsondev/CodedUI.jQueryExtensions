@@ -38,12 +38,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void WaitForNotExistsWithDefaultTimeoutFireFox()
-        //{
-        //    WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void WaitForNotExistsWithDefaultTimeoutFireFox()
+        {
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
+        }
 
         private void WaitForNotExistsWithDefaultTimeout(string browser)
         {
@@ -66,12 +66,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
-        //{
-        //    WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
+        {
+            WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
+        }
 
         private void WaitForExistsOnlyWaitsForSpecifiedTimeout(string browser)
         {

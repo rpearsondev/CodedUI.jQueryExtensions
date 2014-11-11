@@ -38,12 +38,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void GetsHtmlFromDivFireFox()
-        //{
-        //    GetsHtmlFromDiv(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void GetsHtmlFromDivFireFox()
+        {
+            GetsHtmlFromDiv(Constants.Browsers.FireFox);
+        }
 
         private void GetsHtmlFromDiv(string browser)
         {
@@ -67,12 +67,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void GetsTextFromAnchorFireFox()
-        //{
-        //    GetsTextFromAnchor(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void GetsTextFromAnchorFireFox()
+        {
+            GetsTextFromAnchor(Constants.Browsers.FireFox);
+        }
 
         private void GetsTextFromAnchor(string browser)
         {
@@ -96,12 +96,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void GetsValueFromInputFireFox()
-        //{
-        //    GetsTextFromAnchor(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void GetsValueFromInputFireFox()
+        {
+            GetsTextFromAnchor(Constants.Browsers.FireFox);
+        }
 
         private void GetsValueFromInput(string browser)
         {

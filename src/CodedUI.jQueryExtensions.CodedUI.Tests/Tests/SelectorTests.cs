@@ -42,12 +42,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void SelectsMultipleElementsFireFox()
-        //{
-        //    SelectsMultipleElements(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void SelectsMultipleElementsFireFox()
+        {
+            SelectsMultipleElements(Constants.Browsers.FireFox);
+        }
 
         private void SelectsMultipleElements(string browser)
         {
@@ -78,13 +78,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(InvalidCastException))]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void SelectMultipleElementsAsWrongTypeFireFox()
-        //{
-        //    SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(InvalidCastException))]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void SelectMultipleElementsAsWrongTypeFireFox()
+        {
+            SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
+        }
 
         private void SelectMultipleElementsAsWrongType(string browser)
         {

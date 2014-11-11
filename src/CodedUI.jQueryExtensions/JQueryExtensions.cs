@@ -1,12 +1,10 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UITesting;
-
 
 namespace CodedUI.jQueryExtensions
 {
@@ -18,16 +16,16 @@ namespace CodedUI.jQueryExtensions
         public const string DefaultJquerySrc = "//code.jquery.com/jquery-latest.min.js";
 
         /// <summary>
-        /// Runs a jQuery selector and returns the result
+        ///     Runs a jQuery selector and returns the result
         /// </summary>
-        /// <example>  
-        /// Returning a list of HtmlControls using the <see cref="JQuerySelect"/> method.
-        /// <code> 
+        /// <example>
+        ///     Returning a list of HtmlControls using the <see cref="JQuerySelect" /> method.
+        ///     <code> 
         /// public IEnumerable&lt;HtmlControl&gt; GetLiElements()
         /// {
         ///     return Browser.JQuerySelect&lt;HtmlControl&gt;("#multipleElementsTest li");
         /// }
-        /// </code> 
+        /// </code>
         /// </example>
         /// <typeparam name="T">The type of object the result should be cast to.</typeparam>
         /// <param name="browserWindow"></param>
@@ -41,10 +39,27 @@ namespace CodedUI.jQueryExtensions
             }
 
             EnsureJqueryInPage(browserWindow);
-            
-            var controlsBySelector = (List<object>)browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser ,selector));
 
-            if (controlsBySelector.Any(x => !(x is T)))
+
+            List<object> controlsBySelector = null;
+            if (BrowserWindow.CurrentBrowser == "Firefox")
+            {
+                var length =int.Parse(browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector) + ".length").ToString());
+                if (length > 0)
+                {
+                    controlsBySelector = new List<object>();
+                    for (var i = 0; i < length; i++)
+                    {
+                        controlsBySelector.Add(browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector) + "["+i+"]"));
+                    }
+                }
+            }
+            else
+            {
+              controlsBySelector = (List<object>)browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector));
+            }
+
+           if (controlsBySelector.Any(x => !(x is T)))
             {
                 throw new InvalidCastException(
                     string.Format("One or more object(s) returned by the jQuery selector could not be cast to {0}",
@@ -53,9 +68,9 @@ namespace CodedUI.jQueryExtensions
 
             return controlsBySelector.Select(x => (T) x);
         }
-        
+
         /// <summary>
-        /// Returns the combined text contents of each element in the set of matched elements
+        ///     Returns the combined text contents of each element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="browserWindow"></param>
@@ -70,13 +85,15 @@ namespace CodedUI.jQueryExtensions
 
             EnsureJqueryInPage(browserWindow);
 
-            var res = browserWindow.ExecuteScript(string.Format("{0}.text()", GetSelector(BrowserWindow.CurrentBrowser ,selector)));
+            object res =
+                browserWindow.ExecuteScript(string.Format("{0}.text()",
+                    GetSelector(BrowserWindow.CurrentBrowser, selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        /// Returns the HTML contents of the first element in the set of matched elements
+        ///     Returns the HTML contents of the first element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="browserWindow"></param>
@@ -91,13 +108,15 @@ namespace CodedUI.jQueryExtensions
 
             EnsureJqueryInPage(browserWindow);
 
-            var res = browserWindow.ExecuteScript(string.Format("{0}.html()", GetSelector(BrowserWindow.CurrentBrowser, selector)));
+            object res =
+                browserWindow.ExecuteScript(string.Format("{0}.html()",
+                    GetSelector(BrowserWindow.CurrentBrowser, selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        /// Returns the current value of the first element in the set of matched elements
+        ///     Returns the current value of the first element in the set of matched elements
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="browserWindow"></param>
@@ -112,17 +131,19 @@ namespace CodedUI.jQueryExtensions
 
             EnsureJqueryInPage(browserWindow);
 
-            var res = browserWindow.ExecuteScript(string.Format("{0}.val()", GetSelector(BrowserWindow.CurrentBrowser, selector)));
+            object res =
+                browserWindow.ExecuteScript(string.Format("{0}.val()",
+                    GetSelector(BrowserWindow.CurrentBrowser, selector)));
 
             return res == null ? null : res.ToString();
         }
 
         /// <summary>
-        /// Return true if selector returns any elements
+        ///     Return true if selector returns any elements
         /// </summary>
         /// <example>
-        /// Returns true if there is an element on the page that has the id of 'divExistTrueTest'
-        /// <code>
+        ///     Returns true if there is an element on the page that has the id of 'divExistTrueTest'
+        ///     <code>
         /// Browser.JQueryExists("#divExistTrueTest");
         /// </code>
         /// </example>
@@ -135,10 +156,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        /// Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
+        ///     Waits 10 Seconds for an element to exist. If no element exists after 10 seconds it will return false.
         /// </summary>
         /// <remarks>
-        /// Will block until element exists or timeout reached.
+        ///     Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -149,10 +170,10 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        /// Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
+        ///     Waits N milliseconds for an element to exist. If no element exists after N milliseconds it will return false.
         /// </summary>
         /// <remarks>
-        /// Will block until element exists or timeout reached.
+        ///     Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -176,10 +197,10 @@ namespace CodedUI.jQueryExtensions
 
 
         /// <summary>
-        /// Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
+        ///     Waits 10 Seconds for an element to not exist. If element still exists after 10 seconds it will return false.
         /// </summary>
         /// <remarks>
-        /// Will block until element exists or timeout reached.
+        ///     Will block until element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -190,10 +211,11 @@ namespace CodedUI.jQueryExtensions
         }
 
         /// <summary>
-        /// Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return false.
+        ///     Waits N milliseconds for an element to not exist. If element still exists after N milliseconds it will return
+        ///     false.
         /// </summary>
         /// <remarks>
-        /// Will block until doesn't element exists or timeout reached.
+        ///     Will block until doesn't element exists or timeout reached.
         /// </remarks>
         /// <param name="window"></param>
         /// <param name="selector">The jQuery selector.</param>
@@ -217,14 +239,7 @@ namespace CodedUI.jQueryExtensions
 
         private static string GetSelector(string browser, string selector)
         {
-            switch (browser)
-            {
-                case "FireFox":
-                    return string.Format("CodedUI.jQueryExtensions.jQuery('{0}')", selector);
-                default:
-                    return string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector);
-
-            }
+            return string.Format("return CodedUI.jQueryExtensions.jQuery('{0}')", selector);
         }
 
         private static void EnsureJqueryInPage(BrowserWindow browserWindow)
