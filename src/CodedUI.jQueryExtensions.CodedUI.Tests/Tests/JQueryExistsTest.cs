@@ -6,9 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
 {
-    /// <summary>
-    ///     Summary description for CodedUITest1
-    /// </summary>
     [CodedUITest]
     public class JQueryExistsTests : AbstractPageTest
     {

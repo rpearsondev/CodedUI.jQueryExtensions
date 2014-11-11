@@ -25,7 +25,6 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
                 _server = new NancyHost(new Uri("http://localhost:8080"));
                 _server.Start();
             }
-            BrowserWindow.CurrentBrowser = "Chrome";
         }
 
         protected static void KillChromeDriver()

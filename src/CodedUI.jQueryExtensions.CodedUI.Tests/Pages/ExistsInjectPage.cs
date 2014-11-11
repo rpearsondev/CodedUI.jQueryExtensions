@@ -15,8 +15,6 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
         public bool WaitForBody()
         {
             return Browser.JQueryWaitForExists("body");
-        }
-
-     
+        } 
     }
 }
