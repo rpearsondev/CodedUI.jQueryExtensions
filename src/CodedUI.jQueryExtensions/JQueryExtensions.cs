@@ -44,13 +44,13 @@ namespace CodedUI.jQueryExtensions
             List<object> controlsBySelector = null;
             if (BrowserWindow.CurrentBrowser == "Firefox")
             {
+                controlsBySelector = new List<object>();
                 var length =int.Parse(browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector) + ".length").ToString());
                 if (length > 0)
                 {
-                    controlsBySelector = new List<object>();
                     for (var i = 0; i < length; i++)
                     {
-                        controlsBySelector.Add(browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector) + "["+i+"]"));
+                        controlsBySelector.Add(browserWindow.ExecuteScript(GetSelector(BrowserWindow.CurrentBrowser, selector) + "["+ i +"]"));
                     }
                 }
             }

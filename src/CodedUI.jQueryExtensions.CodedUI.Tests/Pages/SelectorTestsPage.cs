@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using CodedUI.jQueryExtensions;
 using CodedUI.jQueryExtensions.Test.Core;
 using Microsoft.Services.TestTools.UITesting.Html;
@@ -17,6 +18,11 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
         public IEnumerable<HtmlButton> DoInvalidCastGetLiElements()
         {
             return Browser.JQuerySelect<HtmlButton>("#multipleElementsTest li");
+        }
+
+        public IEnumerable<HtmlHyperlink> GetAnchorThatContainsExplore()
+        {
+            return Browser.JQuerySelect<HtmlHyperlink>("a:contains(\"Explore\")");
         }
     }
 }

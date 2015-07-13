@@ -92,5 +92,39 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             _testedPage = Page.Launch<SelectorTestsPage>();
             var res = _testedPage.DoInvalidCastGetLiElements();
         }
+
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
+        public void FindAnchorThatContainsIE()
+        {
+            FindAnchorThatContains(Constants.Browsers.IE);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void FindAnchorThatContainsChrome()
+        {
+            FindAnchorThatContains(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void FindAnchorThatContainsFireFox()
+        {
+            FindAnchorThatContains(Constants.Browsers.FireFox);
+        }
+
+        private void FindAnchorThatContains(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<SelectorTestsPage>();
+
+            var liElements = _testedPage.GetAnchorThatContainsExplore();
+            Assert.AreEqual(liElements.First().InnerText, "Explore");
+            
+        }
+
     }
 }

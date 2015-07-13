@@ -32,7 +32,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
              var procs = Process.GetProcesses().Where(p => p.ProcessName.ToLower().Contains("chromedriver"));
             foreach (var p in procs)
             {
-                p.Kill();
+                //p.Kill();
             }
         }
 
