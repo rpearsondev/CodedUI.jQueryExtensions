@@ -2,11 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
     <metadata>
         <id>CodedUI.jQueryExtensions</id>
-<<<<<<< HEAD
-        <version>1.0.4.1</version>
-=======
-        <version>1.0.4.4</version>
->>>>>>> a6f12878a78e3505e83012a100b93c2260f6d5b2
+        <version>1.0.4.5</version>
         <title>CodedUI.jQueryExtensions</title>
         <authors>Richard Pearson</authors>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -14,7 +10,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>CodedUI.jQueryExtensions is a simple set of extension methods for the Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow class. It allows you to select and examine elements in the page under test by jQuery selector.</description>
         <tags>CodedUI Coded UI jQuery Extensions</tags>
-        <releaseNotes>Added JQueryText, JQueryHtml, JQueryVal methods</releaseNotes>
+        <releaseNotes>Fixed issues with latest firefox</releaseNotes>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
             <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.0" />
