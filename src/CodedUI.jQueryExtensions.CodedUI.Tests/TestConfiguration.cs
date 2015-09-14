@@ -4,6 +4,7 @@ using Microsoft.Services.TestTools.UITesting.Html;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
 {
+
     [Export(typeof (IWebUITestConfiguration))]
     public class TestConfiguration : IWebUITestConfiguration
     {
