@@ -25,7 +25,6 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
                 _server = new NancyHost(new Uri("http://localhost:8080"));
                 _server.Start();
             }
-            BrowserWindow.CurrentBrowser = "Chrome";
         }
 
         protected static void KillChromeDriver()
@@ -33,7 +32,7 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests
              var procs = Process.GetProcesses().Where(p => p.ProcessName.ToLower().Contains("chromedriver"));
             foreach (var p in procs)
             {
-                p.Kill();
+                //p.Kill();
             }
         }
 

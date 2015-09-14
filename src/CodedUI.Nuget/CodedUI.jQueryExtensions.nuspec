@@ -2,7 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
     <metadata>
         <id>CodedUI.jQueryExtensions</id>
+<<<<<<< HEAD
         <version>1.0.4.1</version>
+=======
+        <version>1.0.4.4</version>
+>>>>>>> a6f12878a78e3505e83012a100b93c2260f6d5b2
         <title>CodedUI.jQueryExtensions</title>
         <authors>Richard Pearson</authors>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>

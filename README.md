@@ -30,6 +30,19 @@ public static bool JQueryWaitForExists(this BrowserWindow window, string selecto
 public static bool JQueryWaitForNotExists(this BrowserWindow window, string selector, int timeoutMilliSeconds)
 ```
 
+```csharp
+public static string JQueryHtml(this BrowserWindow browserWindow, string selector)
+```
+
+```csharp
+public static string JQueryVal(this BrowserWindow browserWindow, string selector)
+```
+
+```csharp
+public static string JQueryText(this BrowserWindow browserWindow, string selector)
+```
+
+
 #Features
 CodedUI.jQueryExtensions will automatically include a jQuery script into the page if one does not already exist.
 

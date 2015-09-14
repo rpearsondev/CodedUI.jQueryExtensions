@@ -6,9 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
 {
-    /// <summary>
-    ///     Summary description for CodedUITest1
-    /// </summary>
     [CodedUITest]
     public class JQueryNotExistsTests : AbstractPageTest
     {
@@ -40,12 +37,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void DoesNotRemoveJqueryFireFox()
-        //{
-        //    DoesNotRemoveJquery(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void DoesNotRemoveJqueryFireFox()
+        {
+            DoesNotRemoveJquery(Constants.Browsers.FireFox);
+        }
 
 
         private void DoesNotRemoveJquery(string browser)

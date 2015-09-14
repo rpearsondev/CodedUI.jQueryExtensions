@@ -9,9 +9,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
 {
-    /// <summary>
-    ///     Summary description for CodedUITest1
-    /// </summary>
     [CodedUITest]
     public class SelectorTests : AbstractPageTest
     {
@@ -45,12 +42,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void SelectsMultipleElementsFireFox()
-        //{
-        //    SelectsMultipleElements(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void SelectsMultipleElementsFireFox()
+        {
+            SelectsMultipleElements(Constants.Browsers.FireFox);
+        }
 
         private void SelectsMultipleElements(string browser)
         {
@@ -81,13 +78,13 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(InvalidCastException))]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void SelectMultipleElementsAsWrongTypeFireFox()
-        //{
-        //    SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(InvalidCastException))]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void SelectMultipleElementsAsWrongTypeFireFox()
+        {
+            SelectMultipleElementsAsWrongType(Constants.Browsers.FireFox);
+        }
 
         private void SelectMultipleElementsAsWrongType(string browser)
         {
@@ -95,5 +92,39 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             _testedPage = Page.Launch<SelectorTestsPage>();
             var res = _testedPage.DoInvalidCastGetLiElements();
         }
+
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.IE)]
+        public void FindAnchorThatContainsIE()
+        {
+            FindAnchorThatContains(Constants.Browsers.IE);
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.Chrome)]
+        public void FindAnchorThatContainsChrome()
+        {
+            FindAnchorThatContains(Constants.Browsers.Chrome);
+            KillChromeDriver();
+        }
+
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void FindAnchorThatContainsFireFox()
+        {
+            FindAnchorThatContains(Constants.Browsers.FireFox);
+        }
+
+        private void FindAnchorThatContains(string browser)
+        {
+            BrowserWindow.CurrentBrowser = browser;
+            _testedPage = Page.Launch<SelectorTestsPage>();
+
+            var liElements = _testedPage.GetAnchorThatContainsExplore();
+            Assert.AreEqual(liElements.First().InnerText, "Explore");
+            
+        }
+
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using CodedUI.jQueryExtensions.Test.Core;
+﻿using CodedUI.jQueryExtensions.Test.Core;
 using CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages;
 using Microsoft.Services.TestTools.UITesting.Html;
 using Microsoft.VisualStudio.TestTools.UITesting;
@@ -8,9 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
 {
-    /// <summary>
-    ///     Summary description for CodedUITest1
-    /// </summary>
     [CodedUITest]
     public class WaitForNotExistsTests : AbstractPageTest
     {
@@ -43,12 +38,12 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             KillChromeDriver();
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
-        //public void WaitForNotExistsWithDefaultTimeoutFireFox()
-        //{
-        //    WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
-        //}
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
+        public void WaitForNotExistsWithDefaultTimeoutFireFox()
+        {
+            WaitForNotExistsWithDefaultTimeout(Constants.Browsers.FireFox);
+        }
 
         private void WaitForNotExistsWithDefaultTimeout(string browser)
         {
@@ -71,8 +66,8 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.Chrome);
         }
 
-        //[TestMethod]
-        //[TestCategory(Constants.Browsers.FireFox)]
+        [TestMethod]
+        [TestCategory(Constants.Browsers.FireFox)]
         public void WaitForExistsOnlyWaitsForSpecifiedTimeoutFireFox()
         {
             WaitForExistsOnlyWaitsForSpecifiedTimeout(Constants.Browsers.FireFox);
@@ -84,6 +79,5 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Tests
             _testedPage = Page.Launch<WaitForNotExistsTestsPage>();
             Assert.IsFalse(_testedPage.WaitForDivOverloadedTimeout());
         }
-
     }
 }

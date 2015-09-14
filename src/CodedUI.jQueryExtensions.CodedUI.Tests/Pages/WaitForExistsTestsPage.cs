@@ -1,7 +1,6 @@
 ﻿using CodedUI.jQueryExtensions;
 using CodedUI.jQueryExtensions.Test.Core;
 using Microsoft.Services.TestTools.UITesting.Html;
-using Microsoft.VisualStudio.TestTools.UITesting;
 
 namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
 {
@@ -17,6 +16,5 @@ namespace CodedUIjQuery.jQueryExtensions.CodedUI.Tests.Pages
         {
             return Browser.JQueryWaitForExists("#divExistAfter5SecondsTest", 2*1000);
         }
-
     }
 }
